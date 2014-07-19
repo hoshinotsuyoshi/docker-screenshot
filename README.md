@@ -9,7 +9,7 @@ docker-screenshot
 password is password
 
 ### Usage in container:
-/shot.sh [url]
+/start.sh [url]
 
 ### Vagrant
 Use this [Vagrantfile](https://github.com/coreos/coreos-vagrant)
@@ -25,5 +25,5 @@ config.vm.synced_folder ".", "/home/core/share", id: "core", :nfs => true, :moun
 like:
 
 ```
-docker run -it --name shot --rm -p 5901:5901 -v /home/core/data:/data:rw hoshinotsuyoshi/screenshot "[url]"
+docker run -it --name shot --rm -p 5901:5901 -v /home/core/share:/data:rw hoshinotsuyoshi/screenshot "[url]"
 ```
