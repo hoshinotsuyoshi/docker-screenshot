@@ -8,7 +8,7 @@ docker-screenshot
 ### vnc:
 password is password
 
-### Usage:
+### Usage in container:
 /shot.sh [url]
 
 ### Vagrant
@@ -25,5 +25,5 @@ config.vm.synced_folder ".", "/home/core/share", id: "core", :nfs => true, :moun
 like:
 
 ```
-docker run -it --name shot --rm -p 5901:5901 -v /home/core/data:/data:rw hoshinotsuyoshi/screenshot
+docker run -it --name shot --rm -p 5901:5901 -v /home/core/data:/data:rw hoshinotsuyoshi/screenshot "[url]"
 ```

@@ -9,3 +9,4 @@ ADD chrome_data_dir /root/chrome_data_dir
 RUN mkdir /root/image_dir
 ADD shot.sh shot.sh
 RUN chmod +x /shot.sh
+ENTRYPOINT ["/shot.sh"]
