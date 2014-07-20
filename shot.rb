@@ -1,5 +1,6 @@
 #!/usr/bin/ruby
 
+sleep 12
 require 'fileutils'
 
 FileUtils.mkdir_p '/data/web/public'
