@@ -25,5 +25,5 @@ config.vm.synced_folder ".", "/home/core/share", id: "core", :nfs => true, :moun
 like:
 
 ```
-docker run -it --name shot --rm -p 5901:5901 -v /home/core/share:/data:rw hoshinotsuyoshi/screenshot "[url]"
+docker run -d --name shot -p 5901:5901 -p 8000:80 -v /home/core/share:/data/web/public:rw hoshinotsuyoshi/screenshot "http://..."
 ```
