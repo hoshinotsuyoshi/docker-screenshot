@@ -20,5 +20,7 @@ ADD start.sh start.sh
 RUN chmod +x /start.sh
 ADD shot.sh shot.sh
 RUN chmod +x /shot.sh
+ADD shot.rb shot.rb
+RUN chmod +x /shot.rb
 
 ENTRYPOINT ["/start.sh"]
