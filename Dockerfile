@@ -14,8 +14,8 @@ RUN cd /data/web && bundle
 
 ADD vncserver.sh vncserver.sh
 RUN chmod +x /vncserver.sh
-ADD chrome.sh chrome.sh
-RUN chmod +x /chrome.sh
+ADD chrome.rb chrome.rb
+RUN chmod +x /chrome.rb
 ADD start.sh start.sh
 RUN chmod +x /start.sh
 ADD shot.rb shot.rb
