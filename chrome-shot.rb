@@ -1,5 +1,11 @@
 #!/usr/bin/ruby
 
+fork do
+  #chrome
+  `google-chrome --no-sandbox --user-data-dir=/root/chrome_data_dir #{ARGV.first}`
+end
+
+#shot
 sleep 12
 require 'fileutils'
 
