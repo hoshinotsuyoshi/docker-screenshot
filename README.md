@@ -34,5 +34,11 @@ like:
 docker run -d --name shot -p 5901:5901 -p 8000:80 hoshinotsuyoshi/screenshot:sinatra
 ```
 
+share volume:
+
+```
+docker run -d --name shot -p 5901:5901 -p 8000:80 -v /home/core/public:/data/web/public:rw hoshinotsuyoshi/screenshot:sinatra
+```
+
 (options `--name`,`5901`(for debug) are optional)
 
