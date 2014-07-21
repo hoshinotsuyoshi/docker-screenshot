@@ -40,5 +40,11 @@ share volume:
 docker run -d --name shot -p 5901:5901 -p 8000:80 -v /home/core/public:/data/web/public:rw hoshinotsuyoshi/screenshot:sinatra
 ```
 
+sinatra-app:
+
+```
+docker run -d --name web -p 8001:80 -v /home/core/public:/data/web/public:rw hoshinotsuyoshi/screenshot-web
+```
+
 (options `--name`,`5901`(for debug) are optional)
 

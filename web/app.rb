@@ -15,15 +15,6 @@ get '/url' do
   haml :index
 end
 
-post '/shot' do
-  url = params[:url]
-  #FIXME
-  #danger
-  `/chrome-shot.rb "#{url}"`
-  url = CGI.escape url
-  redirect to("/url?url=#{url}")
-end
-
 get '/png/:image' do
   send_file File.join(settings.public_folder, CGI.escape(params[:folder]), params[:image])
 end
@@ -31,10 +22,6 @@ end
 __END__
 @@ index
 %h2 Hello images!!
-%div
-  %form{:action=>'/shot', :method=>'POST'}
-    %input{:type=>'text', :name=>'url'}
-    %input{:type=>'submit'}
 %p
   = params[:url]
 - @links.each do |link|
