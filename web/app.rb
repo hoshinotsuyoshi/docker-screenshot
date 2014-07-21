@@ -4,13 +4,14 @@ require 'haml'
 require 'cgi'
 
 get '/' do
-  #@images = Dir.glob("./public/*.png").map{|image|File.basename image}
   @images = []
+  @links  = Dir.glob("./public/*")
   haml :index
 end
 
 get '/url' do
   @images = Dir.glob("./public/#{CGI.escape params[:url]}/*.png")
+  @links  = []
   haml :index
 end
 
@@ -36,8 +37,12 @@ __END__
     %input{:type=>'submit'}
 %p
   = params[:url]
-%p
-  = @images.size
+- @links.each do |link|
+  - link = link.gsub /\A.+public/, ''
+  - url = link.split('/').last
+  %p
+    %a{:href=>"/url?url=#{url}"}
+      = CGI.unescape(url)
 - @images.each do |image|
   - image = image.gsub /\A.+public/, ''
   - elements = image.split('/')

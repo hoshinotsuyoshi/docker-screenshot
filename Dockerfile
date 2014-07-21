@@ -8,7 +8,8 @@ ENV DISPLAY :1
 ADD chrome_data_dir /root/chrome_data_dir
 
 RUN mkdir -p /data
-ADD web /data/web
+RUN mkdir -p /data/web
+ADD web/Gemfile /data/web/Gemfile
 RUN cd /data/web && gem install bundler
 RUN cd /data/web && bundle
 
@@ -18,5 +19,9 @@ ADD chrome-shot.rb chrome-shot.rb
 RUN chmod +x /chrome-shot.rb
 ADD start.sh start.sh
 RUN chmod +x /start.sh
+
+# web app
+ADD web/config.ru /data/web/config.ru
+ADD web/app.rb /data/web/app.rb
 
 ENTRYPOINT ["/start.sh"]
