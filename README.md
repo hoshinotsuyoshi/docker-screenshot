@@ -3,18 +3,17 @@ docker-screenshot
 
 ## Development
 
-###
-
 ### vnc:
 password is password
 
 ### Vagrant
-Use this [Vagrantfile](https://github.com/coreos/coreos-vagrant)
+Use this [Vagrantfile](https://github.com/hoshinotsuyoshi/coreos-vagrant/tree/for-screenshot)
 
+Point:
 Add sync-folder line in Vagrantfile like :
 
 ```
-config.vm.synced_folder ".", "/home/core/share", id: "core", :nfs => true, :mount_options => ['nolock,vers=3,udp']
+config.vm.synced_folder "./share", "/home/core/share", id: "core", :nfs => true, :mount_options => ['nolock,vers=3,udp']
 ```
 
 ### Usage
