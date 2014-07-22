@@ -2,9 +2,12 @@ require 'spec_helper'
 
 describe Crawler do
   describe '.Start' do
-    it 'calls Process.fork' do
-      expect(Process).to receive(:fork)
-      Crawler.Start
+    context 'when LIMIT is 3' do
+      it 'calls Process.fork 3 times' do
+        stub_const('Crawler::LIMIT',3)
+        expect(Process).to receive(:fork).exactly(3)
+        Crawler.Start
+      end
     end
   end
 end
