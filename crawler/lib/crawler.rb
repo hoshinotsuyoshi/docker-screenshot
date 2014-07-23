@@ -15,6 +15,10 @@ class Crawler
     end
   end
 
+  def self.run
+    new.run
+  end
+
   def run
   end
 end

@@ -11,4 +11,11 @@ describe Crawler do
       end
     end
   end
+
+  describe '.run' do
+    it 'calls Crawler#run' do
+      allow_any_instance_of(Crawler).to receive(:run)
+      Crawler.run
+    end
+  end
 end
