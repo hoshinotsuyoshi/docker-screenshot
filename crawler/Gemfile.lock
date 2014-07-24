@@ -1,6 +1,9 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.3.6)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
     diff-lcs (1.2.5)
     domain_name (0.5.19)
       unf (>= 0.0.5, < 1.0.0)
@@ -34,9 +37,13 @@ GEM
     rspec-mocks (3.0.3)
       rspec-support (~> 3.0.0)
     rspec-support (3.0.3)
+    safe_yaml (1.0.3)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.6)
+    webmock (1.18.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
     webrobots (0.1.1)
 
 PLATFORMS
@@ -45,3 +52,4 @@ PLATFORMS
 DEPENDENCIES
   mechanize
   rspec
+  webmock
