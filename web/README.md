@@ -1,4 +1,4 @@
-hoshinotsuyoshi/vncserver
+hoshinotsuyoshi/screenshot-web
 =====
 
 ## docker build
