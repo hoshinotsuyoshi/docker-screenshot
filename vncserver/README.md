@@ -7,3 +7,6 @@ hoshinotsuyoshi/vncserver
 docker build -t hoshinotsuyoshi/vncserver .
 
 ```
+
+
+fafafa
