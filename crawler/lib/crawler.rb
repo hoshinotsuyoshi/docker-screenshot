@@ -22,18 +22,31 @@ class Crawler
   end
 
   def self.run
-    new.run
+    @rooms ||= []
+    @instance ||= new
+    @rooms = @instance.run rescue nil
+    @instance.shot_all(@rooms)
   end
 
   def run
     @agent ||= Mechanize.new
     @agent.get 'http://www.dmm.co.jp/live/chat/'
     boxes = @agent.page/'//li[@class="listbox waitingbox"]'
-    array = boxes.map do |box|
+    boxes.map do |box|
       {
         url: (box/'a').attr('href').value,
         name: (box/'span[@class="name"]').text.strip
       }
     end
+  end
+
+  def shot_all(rooms)
+    rooms.each_with_index do |room,i|
+      shot room[:url]
+      break if i > 4
+    end
+  end
+
+  def shot(url)
   end
 end

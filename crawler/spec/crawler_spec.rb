@@ -15,6 +15,7 @@ describe Crawler do
   describe '.run' do
     it 'calls Crawler#run' do
       allow_any_instance_of(Crawler).to receive(:run)
+      allow_any_instance_of(Crawler).to receive(:shot_all)
       Crawler.run
     end
   end
