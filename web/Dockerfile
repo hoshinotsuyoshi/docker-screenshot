@@ -1,8 +1,7 @@
-FROM hoshinotsuyoshi/vncserver
+FROM hoshinotsuyoshi/vncserver:ruby2-1-2
 RUN mkdir -p /data
 RUN mkdir -p /data/web
 RUN mkdir -p /data/web/public
-RUN gem install bundler --no-ri --no-rdoc
 
 ADD Gemfile /data/web/Gemfile
 RUN cd /data/web && bundle --jobs 4
