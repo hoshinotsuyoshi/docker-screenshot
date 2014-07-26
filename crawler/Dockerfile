@@ -9,4 +9,13 @@ RUN chmod +x /vncserver.sh
 ADD chrome-shot.rb chrome-shot.rb
 RUN chmod +x /chrome-shot.rb
 
-CMD ["/vncserver.sh"]
+ADD start.rb start.rb
+RUN chmod +x /start.rb
+
+ADD start.sh start.sh
+RUN chmod +x /start.sh
+
+RUN mkdir -p /data/crawler
+ADD lib /data/crawler/lib
+
+CMD ["/start.sh"]

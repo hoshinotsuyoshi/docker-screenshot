@@ -43,10 +43,11 @@ class Crawler
   def shot_all(rooms)
     rooms.each_with_index do |room,i|
       shot room[:url]
-      break if i > 4
+      break if i.zero? #FIXME
     end
   end
 
   def shot(url)
+    `/chrome-shot.rb "#{url}"`
   end
 end
