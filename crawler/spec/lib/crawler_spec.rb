@@ -93,7 +93,8 @@ describe Crawler do
           {:url=>"http://www.dmm.co.jp/live/chat/-/chat-room/=/character_id=688699/",:name=>"ゆこ＊＊"},
           {:url=>"http://www.dmm.co.jp/live/chat/-/chat-room/=/character_id=702542/",:name=>"(しおん˘ω˘*)"},
           {:url=>"http://www.dmm.co.jp/live/chat/-/chat-room/=/character_id=704727/",:name=>"**ゆき☆"},
-          {:url=>"http://www.dmm.co.jp/live/chat/-/chat-room/=/character_id=704954/",:name=>"ＨＡＩＪＩ"}]
+          {:url=>"http://www.dmm.co.jp/live/chat/-/chat-room/=/character_id=704954/",:name=>"ＨＡＩＪＩ"},
+        ]
         expect(Crawler.new.run).to eq(expected)
     end
   end
