@@ -20,24 +20,18 @@ config.vm.synced_folder "./share", "/home/core/share", id: "core", :nfs => true,
 
 (トップ画面いけばわかる)
 
-### Docker pull
-
-```
-docker pull hoshinotsuyoshi/screenshot:sinatra
-```
-
 ### Docker run
 
-like:
+crawler:
 
 ```
-docker run -d --name shot -p 5901:5901 -p 8000:80 hoshinotsuyoshi/screenshot:sinatra
+docker run -it --name crawler --rm -v /home/core/public:/data/web/public:rw hoshinotsuyoshi/crawler bash
 ```
 
-share volume:
+(in crawler container):
 
 ```
-docker run -d --name shot -p 5901:5901 -p 8000:80 -v /home/core/public:/data/web/public:rw hoshinotsuyoshi/screenshot:sinatra
+/vncserver.sh & /chrome-shot.rb "URL"
 ```
 
 sinatra-app:
@@ -46,5 +40,4 @@ sinatra-app:
 docker run -d --name web -p 8001:80 -v /home/core/public:/data/web/public:rw hoshinotsuyoshi/screenshot-web
 ```
 
-(options `--name`,`5901`(for debug) are optional)
-
+(options `--name`,`-p 5901`(for debug) are optional)
