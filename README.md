@@ -25,7 +25,7 @@ config.vm.synced_folder "./share", "/home/core/share", id: "core", :nfs => true,
 crawler:
 
 ```
-docker run -it --name crawler --rm -v /home/core/public:/data/web/public:rw hoshinotsuyoshi/crawler bash
+docker run -it --name crawler --rm -v /home/core/public:/data/web/public:rw hoshinotsuyoshi/crawler /start.sh
 ```
 
 (in crawler container):

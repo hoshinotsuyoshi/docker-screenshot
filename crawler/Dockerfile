@@ -15,7 +15,7 @@ RUN chmod +x /start.rb
 ADD start.sh start.sh
 RUN chmod +x /start.sh
 
-RUN mkdir -p /data/crawler
-ADD lib /data/crawler/lib
+ADD . /data/crawler
+RUN cd /data/crawler && bundle
 
 CMD ["/start.sh"]
