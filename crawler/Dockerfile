@@ -15,7 +15,12 @@ RUN chmod +x /start.rb
 ADD start.sh start.sh
 RUN chmod +x /start.sh
 
+# for cache!
+ADD Gemfile /Gemfile
+ADD Gemfile.lock /Gemfile.lock
+RUN bundle
+
 ADD . /data/crawler
-RUN cd /data/crawler && bundle
+# confirm bundle
 
 CMD ["/start.sh"]
