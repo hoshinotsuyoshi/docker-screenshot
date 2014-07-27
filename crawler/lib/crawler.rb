@@ -43,7 +43,8 @@ class Crawler
   def shot_all(rooms)
     rooms.each_with_index do |room,i|
       shot room[:url]
-      break if i.zero? #FIXME
+      #break if i.zero? #FIXME
+      break if i == 2 #FIXME
     end
   end
 
