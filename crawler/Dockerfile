@@ -16,9 +16,10 @@ ADD start.sh start.sh
 RUN chmod +x /start.sh
 
 # for cache!
-ADD Gemfile /Gemfile
-ADD Gemfile.lock /Gemfile.lock
-RUN bundle
+RUN apt-get -y install libmagickwand-dev
+ADD Gemfile /data/crawler/Gemfile
+ADD Gemfile.lock /data/crawler/Gemfile.lock
+RUN cd /data/crawler && bundle -j4
 
 ADD . /data/crawler
 # confirm bundle
