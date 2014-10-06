@@ -4,7 +4,7 @@ require 'mechanize'
 
 class Crawler
   LIMIT = Float::INFINITY
-  INTERVAL = 60
+  INTERVAL = 10
 
   def intialize
     @agent = Mechanize.new
@@ -30,12 +30,12 @@ class Crawler
 
   def run
     @agent ||= Mechanize.new
-    @agent.get 'http://www.dmm.co.jp/live/chat/'
-    boxes = @agent.page/'//li[@class="listbox waitingbox"]'
+    @agent.get 'http://www.dmm.co.jp/live/acha/'
+    boxes = @agent.page/'//li[@class="listbox  adult"]'
     boxes.map do |box|
       {
         url: (box/'a').attr('href').value,
-        name: (box/'span[@class="name"]').text.strip
+        name: (box/'a'/'span[@class="name"]').text.strip
       }
     end
   end
@@ -43,8 +43,8 @@ class Crawler
   def shot_all(rooms)
     rooms.each_with_index do |room,i|
       shot room[:url]
-      #break if i.zero? #FIXME
-      break if i == 2 #FIXME
+      break if i.zero? #FIXME
+      #break if i == 2 #FIXME
     end
   end
 
